@@ -96,7 +96,7 @@ export default function InventoryPage() {
                     </Button>
                   </div>
 
-                  <div className="flex justify-between text-sm text-gray-600">
+                  <div className="flex justify-between text-sm text-white">
                     <span>{car.mileage.toLocaleString()} mi</span>
                     <span>{car.transmission}</span>
                   </div>

@@ -37,7 +37,7 @@ const itemVariants = {
 
 export default function ServicesSection() {
   return (
-    <section className="py-8 bg-gray-900 text-white border border-red-800 ">
+    <section className="py-8 bg-gray-900 text-white ">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-2xl font-bold text-center mb-8"
@@ -48,6 +48,20 @@ export default function ServicesSection() {
           WELCOME TO{" "}
           <span className="text-orange-500">KARS AUTO REPAIR AND SALES</span>
         </motion.h2>
+
+        <motion.p
+          className="text-xl text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          At <span className="text-orange-500">KARS AUTO REPAIR AND SALES</span>{" "}
+          we provide top-quality auto repairs and reliable car sales. From
+          expert repairs like brake services, oil changes, and diagnostics to
+          offering dependable vehicles from trusted brands like Honda and
+          Toyota, we’re your one-stop shop for keeping your car running smoothly
+          and finding your next ride.
+        </motion.p>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={containerVariants}
