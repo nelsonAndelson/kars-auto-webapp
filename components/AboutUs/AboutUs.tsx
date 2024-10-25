@@ -40,15 +40,15 @@ export default function AboutUsSection() {
               About <span className="text-orange-500">KARS AUTO</span>
             </h2>
             <p className="mb-6 text-gray-300">
-              At KARS AUTO SALES AND REPAIR, we've been serving the Cleveland
-              community for over two decades. Our passion for automobiles and
-              commitment to customer satisfaction have made us a trusted name in
-              both car sales and auto repair.
+              At KARS AUTO SALES AND REPAIR, we&apos;ve been serving the
+              Cleveland community for over two decades. Our passion for
+              automobiles and commitment to customer satisfaction have made us a
+              trusted name in both car sales and auto repair.
             </p>
             <p className="mb-6 text-gray-300">
-              Whether you're looking for a quality pre-owned vehicle or need
-              expert repair services, our team of certified professionals is
-              here to exceed your expectations.
+              Whether you&apos;re looking for a quality pre-owned vehicle or
+              need expert repair services, our team of certified professionals
+              is here to exceed your expectations.
             </p>
             <Button className="bg-orange-500 hover:bg-orange-600 text-white">
               Learn More About Us
