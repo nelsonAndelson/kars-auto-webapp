@@ -1,6 +1,11 @@
-import { Wrench, Car, CreditCard, Headphones } from "lucide-react";
+import { Wrench } from "lucide-react";
+import { GiCarWheel, GiAutoRepair } from "react-icons/gi";
+import { PiEngineBold } from "react-icons/pi";
 import { ServiceType } from "@/types/components/ServicesTypes";
 import brakesImage from "@/app/images/car-suspension.jpg";
+import tireImage from "@/app/images/tire-rotation-services.jpeg";
+import engineImage from "@/app/images/engine-repair.jpg";
+import maintenanceImage from "@/app/images/service.jpg";
 
 export const services: ServiceType[] = [
   {
@@ -11,21 +16,24 @@ export const services: ServiceType[] = [
     image: brakesImage,
   },
   {
-    icon: <Car className="w-8 h-8 text-orange-500" />,
-    title: "Car Sales",
-    description: "Wide selection of quality used cars at competitive prices.",
-    image: brakesImage,
+    icon: <GiCarWheel className="w-8 h-8 text-orange-500" />,
+    title: "Tires and Wheel Repair",
+    description:
+      "Keep your ride safe and smooth with our tire and wheel services. From rotations and alignments to replacements, we ensure your tires wear evenly and your car handles perfectly.",
+    image: tireImage,
   },
   {
-    icon: <CreditCard className="w-8 h-8 text-orange-500" />,
-    title: "Financing",
-    description: "Flexible financing options to fit your budget.",
-    image: brakesImage,
+    icon: <PiEngineBold className="w-8 h-8 text-orange-500" />,
+    title: "Engine and Transmission Repair",
+    description:
+      "Get back on the road with confidence. Our expert team handles everything from diagnostics to repairs for engines and transmissions, ensuring reliable performance and peace of mind.",
+    image: engineImage,
   },
   {
-    icon: <Headphones className="w-8 h-8 text-orange-500" />,
-    title: "Customer Support",
-    description: "Dedicated support team for all your inquiries.",
-    image: brakesImage,
+    icon: <GiAutoRepair className="w-8 h-8 text-orange-500" />,
+    title: "Preventive Maintenance",
+    description:
+      "Keep your car in peak condition with our preventive maintenance services. From oil changes and filter replacements to full inspections, we help you avoid costly repairs down the road.",
+    image: maintenanceImage,
   },
 ];

@@ -70,8 +70,12 @@ export default function ServicesSection() {
         >
           {services.map((service, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full bg-gray-800 border-gray-700 ">
-                <CardHeader className="relative p-0 aspect-video">
+              <Card className="h-full bg-gray-800 border-gray-700">
+                <motion.div
+                  className="relative p-0 aspect-video cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -80,7 +84,7 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black bg-opacity-90 flex items-center justify-center">
                     {service.icon}
                   </div>
-                </CardHeader>
+                </motion.div>
                 <CardContent className="p-4">
                   <CardTitle className="text-lg mb-2 text-orange-500">
                     {service.title}
@@ -92,7 +96,7 @@ export default function ServicesSection() {
                     variant="outline"
                     className="w-full bg-orange-500 text-white hover:bg-orange-600"
                   >
-                    Call Us Today
+                    <Link href="tel:+12163041233">Call Us Today</Link>
                   </Button>
                 </CardFooter>
               </Card>
