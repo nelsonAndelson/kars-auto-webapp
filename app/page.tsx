@@ -4,7 +4,7 @@ import Services from "@/components/Services/Services";
 import AboutUsSection from "@/components/AboutUs/AboutUs";
 import React from "react";
 
-const Home = () => {
+const Home = async () => {
   return (
     <main className="w-full">
       <Slideshow />
