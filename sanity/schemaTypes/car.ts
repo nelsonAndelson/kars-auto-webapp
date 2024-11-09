@@ -70,6 +70,9 @@ export default {
       type: 'array',
       of: [{type: 'image'}],
       description: 'List of images for the car',
+      options: {
+        hotspot: true, // Allows for cropping of images
+      },
     },
   ],
 }
