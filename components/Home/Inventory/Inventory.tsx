@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CarListingType } from "@/types/types";
 import { mockInventory } from "@/data/inventoryData";
+import { getAllCars } from "@/actions/sanity-actions";
 
 export default function InventoryPage() {
   const [inventory] = useState<CarListingType[]>(mockInventory);
@@ -27,6 +28,14 @@ export default function InventoryPage() {
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
   );
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      const cars = await getAllCars();
+      console.log("cars", cars);
+    };
+    fetchCars();
+  }, []);
 
   return (
     <div className="container md:mx-auto mx-auto px-4 py-8">

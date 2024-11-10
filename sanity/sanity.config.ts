@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'test-kars-dealership',
+  title: 'kars-auto',
 
-  projectId: '92k9vogo',
+  projectId: 'dzsh0t50',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
