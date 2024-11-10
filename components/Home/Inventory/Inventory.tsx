@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/sanity.config";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -14,12 +15,11 @@ import { Badge } from "@/components/ui/badge";
 import { Car, Phone, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CarListingType } from "@/types/types";
-import { mockInventory } from "@/data/inventoryData";
-import { getAllCars } from "@/actions/sanity-actions";
+import { CarWithFirstImageType } from "@/types/types";
+import { getCarsWithFirstImage } from "@/actions/sanity-actions";
 
 export default function InventoryPage() {
-  const [inventory] = useState<CarListingType[]>(mockInventory);
+  const [inventory, setInventory] = useState<CarWithFirstImageType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("used");
 
@@ -31,8 +31,8 @@ export default function InventoryPage() {
 
   useEffect(() => {
     const fetchCars = async () => {
-      const cars = await getAllCars();
-      console.log("cars", cars);
+      const cars = await getCarsWithFirstImage();
+      setInventory(cars);
     };
     fetchCars();
   }, []);
@@ -79,15 +79,16 @@ export default function InventoryPage() {
         </TabsList>
         <TabsContent value="used">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {inventory.map((car: CarListingType) => (
-              <Card key={car.id} className="overflow-hidden">
+            {inventory.map((car: CarWithFirstImageType) => (
+              <Card key={car._id} className="overflow-hidden">
                 <CardHeader className="p-0 relative w-full h-36">
+                 
                   <Image
-                    src={car.image}
-                    alt={`${car.make} ${car.model}`}
-                    layout="fill"
-                    objectFit="cover"
+        src={urlFor(car.image).url()}
+    alt={`${car.make} ${car.model}`}
+                    fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </CardHeader>
                 <CardContent className="p-4 ">
@@ -138,16 +139,16 @@ export default function InventoryPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredInventory.map((car) => (
-              <Card key={car.id} className="overflow-hidden">
+              <Card key={car._id} className="overflow-hidden">
                 <CardHeader className="p-0">
+                  
                   <Image
-                    src={car.image}
-                    alt={`${car.make} ${car.model}`}
-                    width={500} // Adjust the width as needed
-                    height={100} // Adjust the height as needed
-                    className="w-full h-48 object-cover"
-                    layout="responsive"
-                  />
+  src={urlFor(car.image).url()}
+  alt={`${car.make} ${car.model}`}
+  width={500}
+  height={100}
+  className="w-full h-48 object-cover"
+/>
                 </CardHeader>
                 <CardContent className="p-4">
                   <CardTitle className="text-lg font-bold mb-2">
@@ -164,7 +165,7 @@ export default function InventoryPage() {
                 <CardFooter className="bg-gray-100 p-2">
                   {car.specialOffer && (
                     <Badge className="bg-orange-500 text-white">
-                      Special Offer
+                                          Special Offer
                     </Badge>
                   )}
                 </CardFooter>
