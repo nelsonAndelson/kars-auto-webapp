@@ -62,8 +62,7 @@ export default function AboutUsSection() {
             <Image
               src={logo}
               alt="KARS AUTO team"
-              objectFit="cover"
-              className="rounded-lg w-full h-full"
+              className="rounded-lg w-full h-full object-cover"
             />
             <div className="absolute inset-5 bg-gradient-to-t from-secondary/10 to-transparent"></div>
           </motion.div>

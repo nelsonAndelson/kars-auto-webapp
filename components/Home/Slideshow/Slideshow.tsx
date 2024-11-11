@@ -10,8 +10,6 @@ import serviceImage from "@/app/images/service.jpg";
 import buyingCarImage from "@/app/images/buying-car.png";
 import reliableImage from "@/app/images/reliable.jpg";
 
-// Sample slides data
-console.log(serviceImage);
 const slides: Slide[] = [
   {
     title: "EASY BUYING",
