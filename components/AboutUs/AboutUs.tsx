@@ -5,15 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Wrench, Car, Users, Award } from "lucide-react";
 import Image from "next/image";
 import logo from "@/app/images/logo.png";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+import { fadeInUp } from "@/lib/framer/animations";
 
 const staggerChildren = {
   hidden: { opacity: 0 },
