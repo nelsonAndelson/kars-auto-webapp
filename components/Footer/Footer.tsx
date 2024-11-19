@@ -66,7 +66,7 @@ export default function Footer() {
             </p>
             <p className="mb-2 flex items-center">
               <Phone className="w-5 h-5 mr-2 text-orange-500" />
-              Service: (216) 331-1877
+              Service: (216) 372-0661
             </p>
           </motion.div>
 

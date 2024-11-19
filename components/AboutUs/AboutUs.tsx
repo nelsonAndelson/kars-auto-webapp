@@ -6,6 +6,7 @@ import { Wrench, Car, Users, Award } from "lucide-react";
 import Image from "next/image";
 import logo from "@/app/images/logo.png";
 import { fadeInUp } from "@/lib/framer/animations";
+import Link from "next/link";
 
 const staggerChildren = {
   hidden: { opacity: 0 },
@@ -42,9 +43,11 @@ export default function AboutUsSection() {
               need expert repair services, our team of certified professionals
               is here to exceed your expectations.
             </p>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white">
-              Learn More About Us
-            </Button>
+            <Link href="/about">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                Learn More About Us
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div

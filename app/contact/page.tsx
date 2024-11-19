@@ -164,7 +164,7 @@ export default function ContactUsPage() {
                   <div>
                     <h3 className="font-semibold">Phone</h3>
                     <p className="text-gray-300">Sales: (216) 304-1233</p>
-                    <p className="text-gray-300">Service: (216) 331-1877</p>
+                    <p className="text-gray-300">Service: (216) 372-0661</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">

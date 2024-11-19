@@ -9,24 +9,28 @@ import Image from "next/image";
 import serviceImage from "@/app/images/service.jpg";
 import buyingCarImage from "@/app/images/buying-car.png";
 import reliableImage from "@/app/images/reliable.jpg";
+import Link from "next/link";
 
 const slides: Slide[] = [
   {
     title: "EASY BUYING",
-    subtitle: "Fast, simple process. Drive away hassle-free today!",
+    subtitle: "Fast, simple process. Dri  ve away hassle-free today!",
     buttonText: "VIEW INVENTORY",
+    link: "#",
     image: buyingCarImage, // Replace with your image path
   },
   {
     title: "RELIABLE CARS",
     subtitle: "We only sell reliable cars.",
     buttonText: "VIEW INVENTORY",
+    link: "#",
     image: reliableImage, // Replace with your image path
   },
   {
     title: "EXPERT REPAIR",
     subtitle: "Keep your vehicle in top condition.",
-    buttonText: "CALL US TODAY",
+    buttonText: "CALL US TODAY ON 216-304-1233",
+    link: "tel:+12163041233",
     image: serviceImage, // Replace with your image path
   },
 ];
@@ -92,7 +96,9 @@ export default function Slideshow() {
                 variant="outline"
                 className="bg-primary text-black hover:bg-yellow-600"
               >
-                {slides[currentSlide].buttonText}
+                <Link href={slides[currentSlide].link}> 
+                  {slides[currentSlide].buttonText}
+                </Link>
               </Button>
             </motion.div>
           </div>

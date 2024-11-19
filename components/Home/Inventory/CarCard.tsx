@@ -5,6 +5,7 @@ import { Phone } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CarCard({ car }: { car: CarWithFirstImageType }) {
   return (
@@ -22,15 +23,17 @@ export default function CarCard({ car }: { car: CarWithFirstImageType }) {
         <div className="flex justify-between items-center">
           <div>
             <CardTitle className="text-lg font-bold mb-2">
-              {car.make} {car.model} {car.year}
+              {car.make.toUpperCase()} {car.model.toUpperCase()} {car.year}
             </CardTitle>
             <Badge className="bg-primary text-black font-bold mb-2">
               ${car.price.toLocaleString()}
             </Badge>
           </div>
-          <Button>
-            <Phone className="mr-2 h-4 w-4" /> Call us Today!
-          </Button>
+          <Link href="tel:+12163041233">
+            <Button>
+              <Phone className="mr-2 h-4 w-4" /> Call us Today!
+            </Button>
+          </Link>
         </div>
         <div className="flex justify-between text-sm text-white">
           <span>{car.mileage.toLocaleString()} mi</span>
