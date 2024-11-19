@@ -5,15 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Wrench, Car, Users, Award } from "lucide-react";
 import Image from "next/image";
 import logo from "@/app/images/logo.png";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+import { fadeInUp } from "@/lib/framer/animations";
+import Link from "next/link";
 
 const staggerChildren = {
   hidden: { opacity: 0 },
@@ -50,9 +43,11 @@ export default function AboutUsSection() {
               need expert repair services, our team of certified professionals
               is here to exceed your expectations.
             </p>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white">
-              Learn More About Us
-            </Button>
+            <Link href="/about">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                Learn More About Us
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -62,8 +57,7 @@ export default function AboutUsSection() {
             <Image
               src={logo}
               alt="KARS AUTO team"
-              objectFit="cover"
-              className="rounded-lg w-full h-full"
+              className="rounded-lg w-full h-full object-cover"
             />
             <div className="absolute inset-5 bg-gradient-to-t from-secondary/10 to-transparent"></div>
           </motion.div>

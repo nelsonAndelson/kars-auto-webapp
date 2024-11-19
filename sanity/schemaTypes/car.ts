@@ -71,8 +71,15 @@ export default {
       of: [{type: 'image'}],
       description: 'List of images for the car',
       options: {
-        hotspot: true, // Allows for cropping of images
+        hotspot: true,
       },
+    },
+    {
+      name: 'specialOffer',
+      title: 'Special Offer',
+      type: 'boolean',
+      description: 'Indicates if this car is currently on special offer',
+      initialValue: false,
     },
   ],
 }

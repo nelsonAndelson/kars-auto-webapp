@@ -1,11 +1,14 @@
 import { client } from "../sanity/lib/sanity";
+import { CarWithFirstImageType } from "@/types/types";
 
 export const getAllCars = async () => {
   const cars = await client.fetch(`*[_type == "car"]`);
   return cars;
 };
 
-export async function getCarsWithFirstImage() {
+export async function getCarsWithFirstImage(): Promise<
+  CarWithFirstImageType[]
+> {
   const query = `*[_type == "car"]{
     _id,
     make,
@@ -22,8 +25,5 @@ export async function getCarsWithFirstImage() {
     "image": images[0].asset->url 
   }`;
 
-  const cars = await client.fetch(query);
-  console.log("cars", cars);
-  return cars;
-  // return await client.fetch(query);
+  return await client.fetch(query);
 }
