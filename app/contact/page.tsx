@@ -46,7 +46,7 @@ export default function ContactUsPage() {
               Contact <span className="text-orange-500">Us</span>
             </motion.h1>
             <motion.p variants={fadeIn} className="text-xl max-w-2xl mx-auto">
-              We're here to help. Reach out to us for any inquiries or to
+              We&apos;re here to help. Reach out to us for any inquiries or to
               schedule your service.
             </motion.p>
           </motion.div>
