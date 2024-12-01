@@ -11,7 +11,13 @@ export interface CarType {
   transmission: string;
   features: string[];
   description: string;
-  images: string[];
+  images: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  }[];
 }
 
 export interface CarWithFirstImageType {

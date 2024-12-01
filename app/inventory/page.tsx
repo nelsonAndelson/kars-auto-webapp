@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
 import Inventory from "@/components/Home/Inventory/Inventory";
 import { fadeIn, staggerContainer } from "@/lib/framer/animations";
-import useInventory from "@/hooks/inventory/useInventory";
+import carLotImg from '@/app/images/used car lot_i.webp'
 
 export default function InventoryPage() {
   return (
@@ -17,10 +16,10 @@ export default function InventoryPage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="absolute inset-0">
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src={carLotImg}
             alt="Car interior"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
             sizes="100vw"
           />
@@ -47,24 +46,9 @@ export default function InventoryPage() {
           </motion.div>
         </motion.div>
       </section>
-
-      <TestInventory />
+      <Inventory />
     </div>
   );
 }
 
-function TestInventory() {
-  const { inventory, loading, error } = useInventory();
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
-  return (
-    <div>
-      <h2>Test Inventory</h2>
-      {/* <pre>{JSON.stringify(inventory, null, 2)}</pre> */}
-      <pre>{JSON.stringify(loading, null, 2)}</pre>
-      <pre>{JSON.stringify(error, null, 2)}</pre>
-    </div>
-  );
-}

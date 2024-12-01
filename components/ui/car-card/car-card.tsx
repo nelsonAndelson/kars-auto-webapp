@@ -40,9 +40,8 @@ const CarCard = ({
             <Image
               src={image}
               alt={`${year} ${make} ${model}`}
-              layout="fill"
-              objectFit="cover"
-              className="group-hover:scale-110 transition-transform duration-300"
+              fill
+              className="group-hover:scale-110 transition-transform duration-300 object-cover"
             />
             {featured && (
               <Badge className="absolute top-4 left-4 bg-orange-500 text-white">

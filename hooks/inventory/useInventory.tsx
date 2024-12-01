@@ -1,44 +1,57 @@
 import { getAllCars } from "@/actions/sanity-actions";
+import { useQuery } from "@tanstack/react-query";
 import { CarType } from "@/types/types";
 import { useEffect, useState } from "react";
 
 const useInventory = () => {
-  const [inventory, setInventory] = useState<CarType[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [inventory, setInventory] = useState<CarType[]>([]);
+  // const [error, setError] = useState<string | null>(null);
   const [filteredInventory, setFilteredInventory] = useState<CarType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        setLoading(true);
-        const cars = (await getAllCars()) as CarType[];
-        setInventory(cars);
-        setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch cars");
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchCars = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const cars = (await getAllCars()) as CarType[];
+  //       setInventory(cars);
+  //       setError(null);
+  //     } catch (err) {
+  //       setError(err instanceof Error ? err.message : "Failed to fetch cars");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchCars();
-  }, []);
+  //   fetchCars();
+  // }, []);
 
-  const filterInventory = (searchTerm: string) => {
-    const filtered = inventory.filter((car) =>
+const {
+    data: inventory = [],
+    isLoading,
+    error,
+    isError,
+  } = useQuery({
+    queryKey: ["cars"],
+    queryFn: getAllCars,
+  });
+
+    useEffect(() => {
+    const filtered = inventory.filter((car: CarType) =>
       car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
       car.model.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredInventory(filtered);
-  };
+  }, [inventory, searchTerm]);
 
   return {
     inventory,
-    loading,
+    isLoading,
     error,
-    filterInventory,
+    isError,
+    filteredInventory,
+    searchTerm,
+    setSearchTerm,
   };
 };
 
