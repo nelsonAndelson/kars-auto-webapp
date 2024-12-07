@@ -1,18 +1,18 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-import { CarWithFirstImageType } from "@/types/types";
+import { CarType } from "@/types/types";
 import CarGrid from "./CarGrid";
 interface SearchInventoryProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  filteredInventory: CarWithFirstImageType[];
+  filteredInventory: CarType[];
 }
 
-export default function SearchInventory({ 
-  searchTerm, 
-  setSearchTerm, 
-  filteredInventory 
+export default function SearchInventory({
+  searchTerm,
+  setSearchTerm,
+  filteredInventory,
 }: SearchInventoryProps) {
   return (
     <div>
@@ -33,4 +33,4 @@ export default function SearchInventory({
       <CarGrid inventory={filteredInventory} />
     </div>
   );
-} 
+}
