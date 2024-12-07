@@ -35,3 +35,18 @@ export interface CarWithFirstImageType {
   specialOffer: boolean;
   image: string; // URL of the first image
 }
+
+export interface Car {
+  _id: string;
+  make: string;
+  model: string;
+  year: number;
+  price: number;
+  mileage: number;
+  exteriorColor: string;
+  interiorColor: string;
+  transmission: string;
+  vin: string;
+  description: string;
+  images: string[];
+}
