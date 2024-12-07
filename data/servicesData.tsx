@@ -41,4 +41,3 @@ export const services: ServiceCard[] = [
     features: ["Oil Changes", "Filter Replacement", "Fluid Checks", "Safety Inspections"],
   },
 ];
-git s
