@@ -5,7 +5,7 @@ import { ServicesGrid } from "@/components/Services/ServicesGrid";
 import { WhyChooseUs } from "@/components/Services/WhyChooseUs";
 import { CTASection } from "@/components/Services/CTASection";
 import { ServiceCard } from "@/types/components/ServicesTypes";
-import { Wrench, Gauge, FuelIcon as Oil } from "lucide-react";
+import { Wrench, Gauge } from "lucide-react";
 import generalRepaidImg from "@/app/images/service.jpg";
 import tireRotationImg from "@/app/images/tire-rotation-services.jpeg";
 import engineRepairImg from "@/app/images/engine-repair.jpg";

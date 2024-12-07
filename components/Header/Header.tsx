@@ -1,11 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const navLinkStyles = (path: string) =>
+    `transition-colors duration-200 ${
+      pathname === path ? "text-orange-500" : "hover:text-orange-500"
+    }`;
+
   return (
     <header className="bg-secondary text-secondary-foreground shadow-md">
       <div className="container mx-auto px-4">
@@ -37,28 +45,19 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex space-x-4">
-            <Link
-              href="/"
-              className="hover:text-primary-foreground hover:underline"
-            >
+            <Link href="/" className={navLinkStyles("/")}>
               Home
             </Link>
-            <Link
-              href="/about"
-              className="hover:text-primary-foreground hover:underline"
-            >
+            <Link href="/inventory" className={navLinkStyles("/inventory")}>
+              Inventory
+            </Link>
+            <Link href="/about" className={navLinkStyles("/about")}>
               About
             </Link>
-            <Link
-              href="/services"
-              className="hover:text-primary-foreground hover:underline"
-            >
+            <Link href="/services" className={navLinkStyles("/services")}>
               Services
             </Link>
-            <Link
-              href="/contact"
-              className="hover:text-primary-foreground hover:underline"
-            >
+            <Link href="/contact" className={navLinkStyles("/contact")}>
               Contact
             </Link>
           </nav>
@@ -74,28 +73,19 @@ export default function Header() {
               <SheetContent className="bg-secondary text-secondary-foreground">
                 {/* Mobile menu items */}
                 <nav className="flex flex-col space-y-4">
-                  <Link
-                    href="/"
-                    className="hover:text-primary-foreground hover:underline"
-                  >
+                  <Link href="/" className={navLinkStyles("/")}>
                     Home
                   </Link>
-                  <Link
-                    href="/about"
-                    className="hover:text-primary-foreground hover:underline"
-                  >
+                  <Link href="/inventory" className={navLinkStyles("/inventory")}>
+                    Inventory
+                  </Link>
+                  <Link href="/about" className={navLinkStyles("/about")}>
                     About
                   </Link>
-                  <Link
-                    href="/services"
-                    className="hover:text-primary-foreground hover:underline"
-                  >
+                  <Link href="/services" className={navLinkStyles("/services")}>
                     Services
                   </Link>
-                  <Link
-                    href="/contact"
-                    className="hover:text-primary-foreground hover:underline"
-                  >
+                  <Link href="/contact" className={navLinkStyles("/contact")}>
                     Contact
                   </Link>
                 </nav>

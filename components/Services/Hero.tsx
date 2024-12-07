@@ -11,9 +11,9 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src={servicesImage}
+          fill
           alt="Auto repair shop"
-          layout="fill"
-          objectFit="cover"
+          className="object-cover"
           priority
           sizes="100vw"
         />
