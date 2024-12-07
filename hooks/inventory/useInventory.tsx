@@ -4,29 +4,10 @@ import { CarType } from "@/types/types";
 import { useEffect, useState } from "react";
 
 const useInventory = () => {
-  // const [inventory, setInventory] = useState<CarType[]>([]);
-  // const [error, setError] = useState<string | null>(null);
   const [filteredInventory, setFilteredInventory] = useState<CarType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // useEffect(() => {
-  //   const fetchCars = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const cars = (await getAllCars()) as CarType[];
-  //       setInventory(cars);
-  //       setError(null);
-  //     } catch (err) {
-  //       setError(err instanceof Error ? err.message : "Failed to fetch cars");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchCars();
-  // }, []);
-
-const {
+  const {
     data: inventory = [],
     isLoading,
     error,
@@ -36,10 +17,11 @@ const {
     queryFn: getAllCars,
   });
 
-    useEffect(() => {
-    const filtered = inventory.filter((car: CarType) =>
-      car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      car.model.toLowerCase().includes(searchTerm.toLowerCase())
+  useEffect(() => {
+    const filtered = inventory.filter(
+      (car: CarType) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredInventory(filtered);
   }, [inventory, searchTerm]);
