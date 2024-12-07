@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ServiceCard } from "@/types/components/ServicesTypes";
+import { ServiceCard } from "@/types/components/service-types";
 import { fadeIn, staggerContainer } from "@/lib/framer/animations";
 import { Button } from "@/components/ui/button";
 import {

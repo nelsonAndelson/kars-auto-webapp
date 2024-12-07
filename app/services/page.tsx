@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/Services/Hero";
 import { ServicesGrid } from "@/components/Services/ServicesGrid";
 import { WhyChooseUs } from "@/components/Services/WhyChooseUs";
 import { CTASection } from "@/components/Services/CTASection";
-import { ServiceCard } from "@/types/components/ServicesTypes";
+import { ServiceCard } from "@/types/components/service-types";
 import { Wrench, Gauge } from "lucide-react";
 import generalRepaidImg from "@/app/images/service.jpg";
 import tireRotationImg from "@/app/images/tire-rotation-services.jpeg";
