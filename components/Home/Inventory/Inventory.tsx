@@ -1,39 +1,31 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCarsWithFirstImage } from "@/actions/sanity-actions";
 import InventoryLoading from "./InventoryLoading";
 import InventoryError from "./InventoryError";
 import InventoryEmpty from "./InventoryEmpty";
 import InventoryHeader from "./InventoryHeader";
 import CarGrid from "./CarGrid";
 import SearchInventory from "./SearchInventory";
+import useInventory from "@/hooks/inventory/useInventory";
+import { useState } from "react";
 
 export default function InventoryPage() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("used");
-
+  
   const {
-    data: inventory = [],
+    inventory,
     isLoading,
     error,
     isError,
-  } = useQuery({
-    queryKey: ["cars"],
-    queryFn: getCarsWithFirstImage,
-  });
+    filteredInventory,
+    searchTerm,
+    setSearchTerm,
+  } = useInventory();
 
   if (isLoading) return <InventoryLoading />;
   if (isError) return <InventoryError error={error as Error} />;
   if (!inventory.length) return <InventoryEmpty />;
-
-  const filteredInventory = inventory.filter((car) =>
-    `${car.make} ${car.model} ${car.year}`
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase())
-  );
 
   return (
     <div className="container md:mx-auto mx-auto px-4 py-8">
@@ -73,7 +65,11 @@ export default function InventoryPage() {
           <SearchInventory
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
-            filteredInventory={filteredInventory}
+            filteredInventory={filteredInventory.map(car => ({
+              ...car,
+              specialOffer: false,
+              image: car.images[0]?.asset?._ref || ''
+            }))}
           />
         </TabsContent>
       </Tabs>

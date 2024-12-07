@@ -20,8 +20,8 @@ export default function AboutPage() {
           <Image
             src={autoRepairImage}
             alt="Auto repair shop"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
             sizes="100vw"
           />

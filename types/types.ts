@@ -1,7 +1,8 @@
-import { Slide } from "@/types/components/SlideshowTypes";
-import { CarListingType } from "./components/InventoryTypes";
-import { ServiceType } from "./components/ServicesTypes";
-import { CarType, CarWithFirstImageType } from "./carTypes";
+import { Slide } from "@/types/components/slideshow-types";
+import { CarListingType } from "./components/inventory-types";
+import { ServiceType } from "./components/services-type";
+import { CarType, CarWithFirstImageType } from "./car-types";
+import { CarCardProps } from "./components/car-card-types";
 
 export type {
   Slide,
@@ -9,4 +10,5 @@ export type {
   ServiceType,
   CarType,
   CarWithFirstImageType,
+  CarCardProps,
 };
