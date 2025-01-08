@@ -8,6 +8,9 @@ import Loading from "./loading";
 import CarDetails from "./CarDetails";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn } from "@/lib/framer/animations";
+import { CarType } from "@/types/car-types";
+import { urlFor } from "@/sanity/sanity.config";
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -18,10 +21,12 @@ const staggerContainer = {
   },
 };
 
-export default function CarPage({ car }: { car: any }) {
+export default function CarPage({ car }: { car: CarType }) {
   return (
     <div className="min-h-screen bg-[#0F1117] text-white">
-      <ErrorBoundary fallback={<div>Something went wrong loading the car details.</div>}>
+      <ErrorBoundary
+        fallback={<div>Something went wrong loading the car details.</div>}
+      >
         <Suspense fallback={<Loading />}>
           <section className="pt-8">
             <div className="container mx-auto px-4">
@@ -33,9 +38,9 @@ export default function CarPage({ car }: { car: any }) {
               >
                 <ErrorBoundary fallback={<div>Failed to load images</div>}>
                   <Suspense fallback={<div>Loading images...</div>}>
-                    <ImageGallery 
-                      images={car.images} 
-                      alt={`${car.make} ${car.model} ${car.year}`} 
+                    <ImageGallery
+                      images={car.images.map((image) => urlFor(image).url())}
+                      alt={`${car.make} ${car.model} ${car.year}`}
                     />
                   </Suspense>
                 </ErrorBoundary>
@@ -55,43 +60,58 @@ export default function CarPage({ car }: { car: any }) {
                 className="space-y-12"
               >
                 <div>
-                  <motion.div variants={fadeIn} className="prose prose-invert max-w-none space-y-8">
+                  <motion.div
+                    variants={fadeIn}
+                    className="prose prose-invert max-w-none space-y-8"
+                  >
                     <div>
-                      <p className="text-gray-300">
-                        {car.description}
-                      </p>
+                      <p className="text-gray-300">{car.description}</p>
                     </div>
-                    
+
                     <div>
-                      <h3 className="text-xl font-semibold  uppercase">Vehicle Condition</h3>
+                      <h3 className="text-xl font-semibold  uppercase">
+                        Vehicle Condition
+                      </h3>
                       <p className="text-gray-300">
-                        This {car.year} {car.make} {car.model} comes well-maintained and ready for its new
-                        owner. It features a reliable engine, smooth {car.transmission.toLowerCase()} transmission, 
-                        and includes all the essential modern conveniences. The vehicle has been thoroughly 
-                        inspected by our certified mechanics and meets our high standards for quality and
+                        This {car.year} {car.make} {car.model} comes
+                        well-maintained and ready for its new owner. It features
+                        a reliable engine, smooth{" "}
+                        {car.transmission.toLowerCase()} transmission, and
+                        includes all the essential modern conveniences. The
+                        vehicle has been thoroughly inspected by our certified
+                        mechanics and meets our high standards for quality and
                         reliability.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold uppercase">About Us</h3>
+                      <h3 className="text-xl font-semibold uppercase">
+                        About Us
+                      </h3>
                       <p className="text-gray-300">
-                        At KARS Auto Sales and Repair LLC, we take pride in offering 
-                        quality pre-owned vehicles and professional repair services. 
-                        Our dual expertise in sales and repairs ensures that every 
-                        vehicle we sell meets our rigorous quality standards. We're 
-                        committed to transparent dealings and exceptional customer 
-                        service. Whether you're looking to purchase a vehicle or need 
-                        automotive repairs, our experienced team is here to help.
+                        At KARS Auto Sales and Repair LLC, we take pride in
+                        offering quality pre-owned vehicles and professional
+                        repair services. Our dual expertise in sales and repairs
+                        ensures that every vehicle we sell meets our rigorous
+                        quality standards. We are committed to transparent
+                        dealings and exceptional customer service. Whether
+                        you&apos;re looking to purchase a vehicle or need
+                        automotive repairs, our experienced team is here to
+                        help.
                       </p>
                     </div>
                   </motion.div>
                 </div>
 
-                <motion.div variants={fadeIn} className="grid md:grid-cols-2 gap-8">
+                <motion.div
+                  variants={fadeIn}
+                  className="grid md:grid-cols-2 gap-8"
+                >
                   <Card className="bg-gray-800 border-gray-700">
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-4 uppercase">Features</h3>
+                      <h3 className="text-xl font-semibold mb-4 uppercase">
+                        Features
+                      </h3>
                       <div className="grid grid-cols-2 gap-4">
                         {car.features?.map((feature: string, index: number) => (
                           <div key={index} className="flex items-center gap-2">
@@ -123,7 +143,9 @@ export default function CarPage({ car }: { car: any }) {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-400">Mileage:</span>
-                          <span className="uppercase">{car.mileage.toLocaleString()} MI</span>
+                          <span className="uppercase">
+                            {car.mileage.toLocaleString()} MI
+                          </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-400">Transmission:</span>
@@ -152,4 +174,4 @@ export default function CarPage({ car }: { car: any }) {
       </ErrorBoundary>
     </div>
   );
-} 
+}

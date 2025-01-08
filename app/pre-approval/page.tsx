@@ -1,18 +1,18 @@
-import { PreApprovalForm } from "@/components/PreApproval/PreApprovalForm";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Get Pre-Approved | RightWay Auto",
-  description:
-    "Get pre-approved for your dream car in minutes. Quick and easy approval process with competitive rates.",
-};
+import { PreApprovalForm } from "@/components/PreApproval/PreApprovalForm";
+import { motion } from "framer-motion";
 
 export default function PreApprovalPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-8">
+    <main className="min-h-screen bg-[#0F1117] py-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <PreApprovalForm />
-      </div>
+      </motion.div>
     </main>
   );
 }

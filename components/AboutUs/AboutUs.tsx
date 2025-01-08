@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
 import {
   FaTools,
   FaCar,
@@ -11,7 +10,6 @@ import {
   FaHistory,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import logo from "@/app/images/logo.png";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -69,15 +67,15 @@ export default function AboutUsSection() {
               About <span className="text-orange-500">KARS AUTO</span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              At KARS AUTO SALES AND REPAIR, we've been serving the Cleveland
-              community for over two decades. Our passion for automobiles and
-              commitment to customer satisfaction have made us a trusted name in
-              both car sales and auto repair.
+              At KARS AUTO SALES AND REPAIR, we&apos;ve been serving the
+              Cleveland community for over two decades. Our passion for
+              automobiles and commitment to customer satisfaction have made us a
+              trusted name in both car sales and auto repair.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Whether you're looking for a quality pre-owned vehicle or need
-              expert repair services, our team of certified professionals is
-              here to exceed your expectations.
+              Whether you&apos;re looking for a quality pre-owned vehicle or
+              need expert repair services, our team of certified professionals
+              is here to exceed your expectations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button

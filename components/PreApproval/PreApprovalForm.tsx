@@ -3,29 +3,14 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import {
-  FaCar,
-  FaTruck,
-  FaCarSide,
-  FaPhoneAlt,
-  FaHandshake,
-  FaSearchDollar,
-} from "react-icons/fa";
+import { FaPhoneAlt, FaHandshake } from "react-icons/fa";
 import {
   BsMinecartLoaded,
   BsCreditCard2FrontFill,
   BsCheckCircleFill,
   BsCarFrontFill,
 } from "react-icons/bs";
-import { RiCaravanFill, RiTimeLine } from "react-icons/ri";
-import { AiFillCar } from "react-icons/ai";
-import {
-  MdEmail,
-  MdPerson,
-  MdShoppingCart,
-  MdRemoveRedEye,
-  MdHome,
-} from "react-icons/md";
+import { MdEmail, MdPerson, MdShoppingCart, MdHome } from "react-icons/md";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { GiDreamCatcher } from "react-icons/gi";
 import { IoArrowBack } from "react-icons/io5";
@@ -62,8 +47,7 @@ interface FormData {
 export function PreApprovalForm() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState<FormStep>("vehicle");
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     vehicleType: "",
     stage: "",
     payment: "",
@@ -254,7 +238,6 @@ export function PreApprovalForm() {
       console.log("Form submitted successfully");
       // Show success step
       setCurrentStep("success");
-      setShowConfetti(true);
     } catch (error) {
       console.error("Error submitting form:", error);
       setErrors({
@@ -400,7 +383,7 @@ export function PreApprovalForm() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              {Object.entries(stageIcons).map(([stage, icon], index) => (
+              {Object.entries(stageIcons).map(([stage, icon]) => (
                 <button
                   key={stage}
                   onClick={() => handleNext(stage)}
@@ -557,10 +540,10 @@ export function PreApprovalForm() {
             <BackButton />
             <div className="bg-[#FFF8F1] p-8 pt-20 rounded-[32px]">
               <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 leading-tight">
-                What's your <span className="text-orange-500">email</span>?
+                What&apos;s your <span className="text-orange-500">email</span>?
               </h2>
               <p className="text-center text-gray-600 mb-8 text-lg">
-                We'll send your approval details here 📧
+                We&apos;ll send your approval details here 📧
               </p>
             </div>
             <div className="max-w-md mx-auto">
@@ -596,10 +579,10 @@ export function PreApprovalForm() {
             <BackButton />
             <div className="bg-[#FFF8F1] p-8 pt-20 rounded-[32px]">
               <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 leading-tight">
-                What's your <span className="text-orange-500">name</span>?
+                What&apos;s your <span className="text-orange-500">name</span>?
               </h2>
               <p className="text-center text-gray-600 mb-8 text-lg">
-                Let's get to know each other 👋
+                Let&apos;s get to know each other 👋
               </p>
             </div>
             <div className="max-w-md mx-auto">
@@ -661,11 +644,11 @@ export function PreApprovalForm() {
             <BackButton />
             <div className="bg-[#FFF8F1] p-8 pt-20 rounded-[32px]">
               <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 leading-tight">
-                What's your{" "}
+                What&apos;s your{" "}
                 <span className="text-orange-500">phone number</span>?
               </h2>
               <p className="text-center text-gray-600 mb-8 text-lg">
-                We'll text you updates about your approval 📱
+                We&apos;ll text you updates about your approval 📱
               </p>
             </div>
             <div className="max-w-md mx-auto">
@@ -703,7 +686,7 @@ export function PreApprovalForm() {
                 By continuing, I agree to receive messages and updates from
                 RightWay. Message & data rates may apply.
               </p>
-              <NavigationControls onNext={() => handleNext(formData.phone)} />
+              <NavigationControls onNext={() => handleSubmit()} />
             </div>
           </div>
         );
@@ -725,9 +708,9 @@ export function PreApprovalForm() {
                 <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                   <BsCheckCircleFill className="w-16 h-16 text-teal-600" />
                 </div>
-                <h2 className="text-5xl font-bold mb-6">You're All Set!</h2>
+                <h2 className="text-5xl font-bold mb-6">You&apos;re All Set!</h2>
                 <p className="text-xl text-teal-100 mb-8">
-                  Your pre-approval application is in good hands. We'll be in
+                  Your pre-approval application is in good hands. We&apos;ll be in
                   touch within 24 hours.
                 </p>
                 <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">

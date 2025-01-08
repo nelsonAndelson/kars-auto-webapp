@@ -130,7 +130,7 @@ export default function FAQ() {
               Ready to Drive Home Happy?
             </h3>
             <p className="text-gray-600 mb-6">
-              Get approved in minutes - it's quick and easy!
+              Get approved in minutes - it&apos;s quick and easy!
             </p>
             <Button
               size="lg"

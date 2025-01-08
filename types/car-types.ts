@@ -1,14 +1,24 @@
 // types.ts
 export interface CarType {
+  // Basic Info
   _id: string;
   make: string;
   model: string;
   year: number;
+  vin: string;
+
+  // Details
   price: number;
   mileage: number;
-  color: string;
-  fuelType: string;
   transmission: string;
+  fuelType: string;
+
+  // Colors
+  color: string;
+  exteriorColor: string;
+  interiorColor: string;
+
+  // Additional Info
   features: string[];
   description: string;
   images: {

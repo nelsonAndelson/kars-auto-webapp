@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
-import { FaCar, FaHandshake, FaPhoneAlt } from "react-icons/fa";
+import { FaCar, FaHandshake } from "react-icons/fa";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -94,7 +93,7 @@ export default function HowItWorks() {
           {/* Connection Lines (Only visible on md and up screens) */}
           <div className="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-orange-200 to-orange-500" />
 
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <motion.div
               key={step.number}
               variants={fadeIn}

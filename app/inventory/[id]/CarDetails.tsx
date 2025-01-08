@@ -3,11 +3,28 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Calendar, Gauge, Cog, DollarSign, Phone, Mail, User, MessageSquare } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Calendar,
+  Gauge,
+  Cog,
+  DollarSign,
+  Phone,
+  Mail,
+  User,
+  MessageSquare,
+} from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { CarType } from "@/types/types";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -18,7 +35,7 @@ const fadeIn = {
   },
 };
 
-export default function CarDetails({ car }: { car: any }) {
+export default function CarDetails({ car }: { car: CarType }) {
   return (
     <motion.div variants={fadeIn} className="space-y-6">
       <div>
@@ -53,9 +70,9 @@ export default function CarDetails({ car }: { car: any }) {
 
       {/* CTAs */}
       <div className="flex flex-col gap-4">
-        <Link 
-          href="https://secure.carsforsale.com/ssfinance.aspx?jesxel=726917" 
-          target="_blank" 
+        <Link
+          href="https://secure.carsforsale.com/ssfinance.aspx?jesxel=726917"
+          target="_blank"
           rel="noopener noreferrer"
           passHref
         >
@@ -75,7 +92,7 @@ export default function CarDetails({ car }: { car: any }) {
             <DialogHeader>
               <DialogTitle>Contact Us About This Vehicle</DialogTitle>
               <DialogDescription className="text-gray-400">
-                Fill out the form below and we'll get back to you about
+                Fill out the form below and we&apos;ll get back to you about
                 this {car.year} {car.make} {car.model}.
               </DialogDescription>
             </DialogHeader>
@@ -160,4 +177,4 @@ export default function CarDetails({ car }: { car: any }) {
       </div>
     </motion.div>
   );
-} 
+}
