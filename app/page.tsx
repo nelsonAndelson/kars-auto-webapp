@@ -1,17 +1,19 @@
 import Inventory from "@/components/Home/Inventory/Inventory";
-import Slideshow from "@/components/Home/Slideshow/Slideshow";
-import Services from "@/components/Services/Services";
+import Hero from "@/components/Home/Hero/Hero";
+import HowItWorks from "@/components/Home/HowItWorks/HowItWorks";
 import AboutUsSection from "@/components/AboutUs/AboutUs";
+import FAQ from "@/components/Home/FAQ/FAQ";
 
 import React from "react";
 
 const Home = async () => {
   return (
     <main className="w-full">
-      <Slideshow />
+      <Hero />
       <Inventory />
-      <Services />
+      <HowItWorks />
       <AboutUsSection />
+      <FAQ />
     </main>
   );
 };
