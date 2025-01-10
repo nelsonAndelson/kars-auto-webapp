@@ -3,7 +3,7 @@
 import { CarWithFirstImageType } from "@/types/types";
 import { urlFor } from "@/sanity/sanity.config";
 import Image from "next/image";
-import { MessageSquare, Calendar, Fuel, Gauge, Cog, Info } from "lucide-react";
+import {  Calendar, Fuel, Gauge, Cog, Info } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/tooltip";
 
 export default function FeaturedCarCard({ car }: { car: CarWithFirstImageType }) {
-  const imageUrl = car.images && car.images[0] ? urlFor(car.images[0]).url() : "/car-placeholder.jpg";
+  const imageUrl = car.image ? urlFor(car.image).url() : "/car-placeholder.jpg";
 
   return (
     <motion.div
@@ -102,7 +102,7 @@ export default function FeaturedCarCard({ car }: { car: CarWithFirstImageType })
               >
                 <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0M5 17H3v-6l2-5h12l2 5v6h-2m-4 0h-4" />
               </svg>
-              <span className="text-sm capitalize">{car.engineSize || "2.0L"}</span>
+              <span className="text-sm capitalize">2.0L</span>
             </div>
           </div>
         </CardContent>

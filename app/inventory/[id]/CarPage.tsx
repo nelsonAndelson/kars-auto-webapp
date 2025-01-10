@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn } from "@/lib/framer/animations";
 import { CarType } from "@/types/car-types";
 import { urlFor } from "@/sanity/sanity.config";
-import { Gauge, Settings2, Fuel, ArrowLeft } from "lucide-react";
+import { Gauge, Settings2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 

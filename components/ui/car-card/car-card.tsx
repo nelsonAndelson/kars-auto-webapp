@@ -390,7 +390,7 @@ const CarCard = ({
                       <div>
                         <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
                         <p className="text-gray-400">
-                          We've received your message and will get back to you shortly about the
+                          We&apos;ve received your message and will get back to you shortly about the
                           {' '}{year} {make} {model}.
                         </p>
                       </div>
