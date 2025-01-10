@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { FaPlus, FaMinus, FaQuestionCircle, FaPhoneAlt } from "react-icons/fa";
+import { FaPlus, FaMinus, FaQuestionCircle, FaDollarSign } from "react-icons/fa";
 import Link from "next/link";
 
 const fadeIn = {
@@ -136,9 +136,9 @@ export default function FAQ() {
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-lg px-8"
             >
-              <Link href="tel:+12163041233" className="flex items-center gap-2">
-                <FaPhoneAlt className="w-4 h-4" />
-                Get Approved Now
+              <Link href="/pre-approval" className="flex items-center gap-2">
+                <FaDollarSign className="w-4 h-4" />
+                Get Pre-Approved Now
               </Link>
             </Button>
           </motion.div>
