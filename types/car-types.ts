@@ -6,12 +6,19 @@ export interface CarType {
   model: string;
   year: number;
   vin: string;
+  stockNumber?: string;
+  status?: string;
 
   // Details
   price: number;
   mileage: number;
   transmission: string;
   fuelType: string;
+  engineSize?: string;
+  cylinders?: string;
+  drivetrain?: string;
+  fuelEconomy?: string;
+  horsepower?: number;
 
   // Colors
   color: string;

@@ -15,15 +15,16 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
 
   return (
     <>
-      <motion.div variants={fadeIn} className="relative aspect-[16/10] w-full rounded-lg overflow-hidden">
+      <motion.div variants={fadeIn} className="relative w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden bg-gray-900">
         <Image
           src={images[activeImage] || '/placeholder.svg'}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
           priority
-          className="object-cover"
-          quality={95}
+          className="object-cover w-full h-full"
+          quality={100}
+          loading="eager"
         />
       </motion.div>
 
@@ -40,9 +41,10 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
               src={img}
               alt={`${alt} view ${index + 1}`}
               fill
-              sizes="(max-width: 768px) 25vw, 15vw"
+              sizes="(max-width: 768px) 25vw, (max-width: 1200px) 15vw, 200px"
               className="object-cover hover:opacity-90 transition-opacity"
-              quality={80}
+              quality={90}
+              loading={index < 4 ? "eager" : "lazy"}
             />
           </button>
         ))}

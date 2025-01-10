@@ -23,4 +23,7 @@ const builder = imageUrlBuilder(client)
 
 export const urlFor = (source: any) => {
   return builder.image(source)
+    .auto('format')
+    .fit('max')
+    .quality(90)
 }

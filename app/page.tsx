@@ -1,4 +1,4 @@
-import Inventory from "@/components/Home/Inventory/Inventory";
+import FeaturedInventory from "@/components/Home/Inventory/FeaturedInventory";
 import Hero from "@/components/Home/Hero/Hero";
 import HowItWorks from "@/components/Home/HowItWorks/HowItWorks";
 import AboutUsSection from "@/components/AboutUs/AboutUs";
@@ -10,7 +10,7 @@ const Home = async () => {
   return (
     <main className="w-full">
       <Hero />
-      <Inventory />
+      <FeaturedInventory />
       <HowItWorks />
       <AboutUsSection />
       <FAQ />

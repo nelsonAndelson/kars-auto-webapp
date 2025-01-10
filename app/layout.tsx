@@ -5,6 +5,7 @@ import Providers from "@/providers/Providers";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import PromoBanner from "@/components/PromoBanner";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <Toaster />
         </Providers>
       </body>
     </html>
