@@ -1,6 +1,5 @@
 "use client";
 
-import { CarWithFirstImageType } from "@/types/types";
 import { urlFor } from "@/sanity/sanity.config";
 import Image from "next/image";
 import {  Calendar, Fuel, Gauge, Cog, Info } from "lucide-react";
@@ -15,9 +14,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { CarType } from "@/types/types";
 
-export default function FeaturedCarCard({ car }: { car: CarWithFirstImageType }) {
-  const imageUrl = car.image ? urlFor(car.image).url() : "/car-placeholder.jpg";
+export default function FeaturedCarCard({ car }: { car: CarType }) {
+  // const imageUrl = car.image ? urlFor(car.image).url() : "/car-placeholder.jpg";
+  const imageUrl = car.images[0]?.asset?._ref
+          ? urlFor(car.images[0]).url()
+          : "/fallback-image.jpg";
 
   return (
     <motion.div
