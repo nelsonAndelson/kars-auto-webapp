@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaCar, FaHandshake } from "react-icons/fa";
+import { trackCustomFBEvent } from '@/utils/analytics';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -57,6 +58,20 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const trackStepCompletion = (step: number) => {
+    trackCustomFBEvent('CompleteStep', {
+      step_number: step,
+      step_name: [
+        'Quick Online Pre-Approval',
+        'Browse Inventory',
+        'Schedule Test Drive',
+        'Drive Home Happy'
+      ][step - 1],
+      content_name: 'How It Works Step ' + step,
+      currency: 'USD'
+    });
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-24">
       <div className="container mx-auto px-4">
@@ -93,7 +108,7 @@ export default function HowItWorks() {
           {/* Connection Lines (Only visible on md and up screens) */}
           <div className="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-orange-200 to-orange-500" />
 
-          {steps.map((step) => (
+          {steps.map((step, index) => (
             <motion.div
               key={step.number}
               variants={fadeIn}
@@ -117,6 +132,7 @@ export default function HowItWorks() {
                 <Button
                   variant="outline"
                   className="border-orange-500 text-orange-500 hover:bg-orange-50"
+                  onClick={() => trackStepCompletion(index + 1)}
                 >
                   <Link href={step.action.href}>{step.action.text}</Link>
                 </Button>

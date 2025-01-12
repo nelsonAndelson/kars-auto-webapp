@@ -27,10 +27,12 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CarType } from "@/types/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { z } from "zod";
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
+import { trackFBEvent } from '@/utils/analytics';
+import { FacebookEventParams } from '@/types/facebook';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -65,6 +67,19 @@ export default function CarDetails({ car }: { car: CarType }) {
   const [formErrors, setFormErrors] = useState<Partial<ContactFormData>>({});
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    // Track vehicle view
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_type: 'vehicle',
+        content_ids: [car._id],
+        content_name: `${car.year} ${car.make} ${car.model}`,
+        value: car.price,
+        currency: 'USD'
+      } as FacebookEventParams);
+    }
+  }, [car]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -128,6 +143,16 @@ export default function CarDetails({ car }: { car: CarType }) {
       } else {
         throw new Error('Failed to send message');
       }
+
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_type: 'vehicle',
+          content_ids: [car._id],
+          content_name: `${car.year} ${car.make} ${car.model}`,
+          value: car.price,
+          currency: 'USD'
+        } as FacebookEventParams);
+      }
     } catch (error) {
       if (error instanceof z.ZodError) {
         // Handle validation errors
@@ -161,6 +186,17 @@ export default function CarDetails({ car }: { car: CarType }) {
     setTimeout(() => {
       setIsSuccess(false);
     }, 300);
+  };
+
+  const handleFinanceClick = () => {
+    trackFBEvent('InitiateCheckout', {
+      content_type: 'vehicle_financing',
+      content_ids: [car._id],
+      content_name: `${car.year} ${car.make} ${car.model}`,
+      value: car.price,
+      currency: 'USD',
+      status: car.status || 'available'
+    });
   };
 
   return (
@@ -255,6 +291,7 @@ export default function CarDetails({ car }: { car: CarType }) {
           href="https://secure.carsforsale.com/ssfinance.aspx?jesxel=726917"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleFinanceClick}
           passHref
         >
           <Button className="w-full bg-orange-500 hover:bg-orange-600 py-6 text-lg">

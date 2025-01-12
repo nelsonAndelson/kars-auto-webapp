@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import carImage from "@/app/images/buying-car.png";
 import { FaClock, FaUserCheck, FaShieldAlt } from "react-icons/fa";
+import { trackFBEvent } from '@/utils/analytics';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -24,6 +25,14 @@ const staggerContainer = {
 };
 
 export default function Hero() {
+  const handlePreApprovalClick = () => {
+    trackFBEvent('StartTrial', {
+      content_name: 'Pre-Approval Application',
+      content_category: 'Financing',
+      currency: 'USD'
+    });
+  };
+
   return (
     <section className="relative min-h-[600px] bg-gray-50">
       {/* Main Hero Section */}
@@ -61,7 +70,12 @@ export default function Hero() {
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-white text-lg px-12 py-6 transform hover:scale-105 transition-transform"
             >
-              <Link href="/pre-approval">Get Pre-Approved Now</Link>
+              <Link 
+                href="/pre-approval"
+                onClick={handlePreApprovalClick}
+              >
+                Get Pre-Approved Now
+              </Link>
             </Button>
             <Button
               size="lg"
