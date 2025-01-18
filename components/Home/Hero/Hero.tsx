@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import carImage from "@/app/images/buying-car.png";
 import { FaClock, FaUserCheck, FaShieldAlt } from "react-icons/fa";
+import PromoDetails from "./PromoDetails";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -36,41 +37,41 @@ export default function Hero() {
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-8">
           <motion.div variants={fadeIn} className="flex flex-col gap-3">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-1.5 rounded-lg text-sm font-medium w-fit">
-              Limited Time Offer
+            <div className="inline-block bg-orange-100 text-orange-800 px-4 py-1.5 rounded-lg text-sm font-medium w-fit">
+              Winter Warm Deal ❄️🔥
             </div>
-            <h2 className="text-2xl font-semibold text-orange-500">
-              Drive Home Today with $1,000 Down
-            </h2>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
+              Drive With Confidence: Free Oil Changes & Warranty Protection!
+            </h1>
+            <p className="text-lg text-gray-700">
+              Satisfaction Guarantee, Free Oil Changes, Warranty Protection, and More!
+            </p>
           </motion.div>
 
-          <motion.h1
-            variants={fadeIn}
-            className="text-5xl font-bold text-gray-900"
-          >
-            Your Dream Car
-            <br />
-            <span className="text-orange-500">Without The Hassle</span>
-          </motion.h1>
-
-          <motion.div
-            variants={fadeIn}
-            className="flex flex-col sm:flex-row gap-4 pt-4"
-          >
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white text-lg px-12 py-6 transform hover:scale-105 transition-transform"
-            >
-              <Link href="/pre-approval">Get Pre-Approved Now</Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-orange-500 text-orange-500 hover:bg-orange-50 text-lg"
-            >
-              <Link href="/inventory">Browse Inventory</Link>
-            </Button>
+          {/* Offer Highlights */}
+          <motion.div variants={fadeIn} className="flex flex-col gap-4 mt-6">
+            <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <li>✅ Satisfaction Guarantee with Repairs</li>
+              <li>✅ Free Oil Changes for a Year</li>
+              <li>✅ Warranty Protection (Cash and Financed Cars)</li>
+              <li>🔧 Certified Inspections</li>
+              <li>💸 Maintenance Discounts</li>
+            </ul>
           </motion.div>
+
+          {/* CTA Buttons */}
+          <div className="flex gap-4 mt-8">
+            <Link href="/pre-approval">
+              <Button className="bg-orange-500 text-white px-6 py-3 rounded-lg">
+                Get Started
+              </Button>
+            </Link>
+            <Link href="/inventory">
+              <Button className="bg-transparent border border-orange-500 text-orange-500 px-6 py-3 rounded-lg hover:bg-orange-500 hover:text-white">
+                Browse Inventory
+              </Button>
+            </Link>
+          </div>
 
           <motion.div
             variants={fadeIn}
@@ -99,7 +100,7 @@ export default function Hero() {
           </div>
         </motion.div>
       </motion.div>
-
+        <PromoDetails />
       {/* Trust Indicators */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">

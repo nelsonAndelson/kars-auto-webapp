@@ -23,34 +23,39 @@ const staggerContainer = {
 
 const questions = [
   {
-    question: "What do I need to bring with me?",
+    question: "What is the Satisfaction Guarantee with Repairs, and what does it cover?",
     answer:
-      "Just bring your valid driver's license! We've simplified the process to make it as easy as possible for you.",
+      "If any mechanical issues arise in the first 14 days or 500 miles, we’ll cover up to $500 in repairs. This includes major mechanical problems like engine or transmission issues, but not normal wear-and-tear items like brakes or tires. Just call us within the window, and our trusted mechanic will handle the repairs.",
   },
   {
-    question: "How much money down do I need?",
+    question: "How do I claim my free oil changes, and can they be transferred?",
     answer:
-      "We make it simple with flexible down payment options starting at just $1,000. Most of our customers drive home their dream car the same day!",
+      "Schedule your oil changes with us, and we’ll take care of up to 4 changes within the first 12 months. This offer applies only to the car you purchased and cannot be transferred.",
   },
   {
-    question: "What will my monthly payment be?",
+    question: "What is included in the 30-day warranty, and how does VSC and GAP insurance work?",
     answer:
-      "We work with multiple lenders to find you the most competitive rates and comfortable monthly payments. Call us for a quick, personalized quote that fits your budget.",
+      "Our 30-day warranty covers major mechanical problems. When you finance, VSC and GAP insurance are included at no extra cost, providing extended protection for your car and covering the difference if it’s ever totaled.",
   },
   {
-    question: "Do I make enough money to get approved?",
+    question: "What does the certified inspection include, and can I see the report?",
     answer:
-      "Good news! We work with various income levels and have helped countless customers get approved. Give us a call to discuss your options.",
+      "Our trusted mechanic checks all major systems like brakes, tires, engine, and transmission. We’re happy to show you the inspection report before you buy.",
   },
   {
-    question: "Can I get approved with bad credit?",
+    question: "What’s included in the maintenance discount, and can it be combined with other offers?",
     answer:
-      "Absolutely! We specialize in making car buying easy for everyone, regardless of credit history. Our proven process helps customers with all credit situations drive home happy.",
+      "After your first year, enjoy 15% off all labor costs for services at our dealership for the next 6 months. This discount cannot be combined with other promotions.",
   },
   {
-    question: "Where are you located?",
+    question: "How much do I need to put down, and can I apply for financing online?",
     answer:
-      "We're conveniently located at 4364 W 130TH ST, CLEVELAND, OH 44135. We're open Monday through Saturday from 9:00 AM to 5:00 PM.",
+      "Drive home with as little as $1,000 down. Apply online quickly and easily. We work with all credit types to find a plan that fits your situation.",
+  },
+  {
+    question: "Are there any hidden fees, and how can I contact you?",
+    answer:
+      "We believe in transparency and will explain all fees upfront. Call or text Nelson at 2163041233, or send us a message anytime.",
   },
 ];
 
@@ -58,7 +63,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 py-24" id="faqs">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
