@@ -16,6 +16,7 @@ import { GiDreamCatcher } from "react-icons/gi";
 import { IoArrowBack } from "react-icons/io5";
 import ReactConfetti from "react-confetti";
 import { submitForm } from "@/services/formSubmission";
+import { trackLead } from "@/lib/meta-pixel";
 
 import suvImg from "@/app/images/suv2.png";
 import truckImg from "@/app/images/truck.png";
@@ -234,6 +235,17 @@ export function PreApprovalForm() {
         }
         throw new Error(response.error);
       }
+
+      // Track the lead in Meta Pixel
+      trackLead({
+        content_name: "Pre-approval Form",
+        status: "submitted",
+        currency: "USD",
+        value: 1.00,
+        vehicle_type: formData.vehicleType,
+        buying_stage: formData.stage,
+        payment_range: formData.payment,
+      });
 
       console.log("Form submitted successfully");
       // Show success step
