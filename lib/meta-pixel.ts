@@ -8,12 +8,14 @@ declare global {
 export const trackPageView = () => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'PageView');
+    console.log('🔍 Meta Pixel Event: PageView');
   }
 };
 
 export const trackLead = (data?: any) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'Lead', data);
+    console.log('🎯 Meta Pixel Event: Lead', data);
   }
 };
 
@@ -27,18 +29,21 @@ export const trackViewContent = (data: {
 }) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'ViewContent', data);
+    console.log('👀 Meta Pixel Event: ViewContent', data);
   }
 };
 
 export const trackInitiateCheckout = (data?: any) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'InitiateCheckout', data);
+    console.log('🛒 Meta Pixel Event: InitiateCheckout', data);
   }
 };
 
 export const trackContact = (data?: any) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'Contact', data);
+    console.log('📞 Meta Pixel Event: Contact', data);
   }
 };
 
@@ -46,5 +51,6 @@ export const trackContact = (data?: any) => {
 export const trackCustomEvent = (eventName: string, data?: any) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('trackCustom', eventName, data);
+    console.log(`🎈 Meta Pixel Custom Event: ${eventName}`, data);
   }
 }; 
