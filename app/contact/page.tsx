@@ -205,13 +205,13 @@ export default function ContactUsPage() {
                   <div>
                     <h3 className="font-semibold">Address</h3>
                     <Link 
-                      href="https://maps.google.com/?q=4364+W+130TH+ST,+CLEVELAND,+OH+44135"
+                      href="https://maps.google.com/?q=19100+Nottingham+Road+Cleveland+OH+44110"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:text-blue-600 hover:underline transition-colors duration-200 flex items-center gap-1"
                     >
                       <MapPin size={16} />
-                      4364 W 130TH ST, CLEVELAND, OH 44135
+                      19100 Nottingham Road Cleveland OH 44110
                     </Link>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function ContactUsPage() {
             <h2 className="text-2xl font-bold mb-6">Find Us</h2>
             <div className="aspect-w-16 aspect-h-9">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.7555848899513!2d-81.7803!3d41.4194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830f1e40da5e7d9%3A0x7c3c9e8a6f5e4c0a!2s4364%20W%20130th%20St%2C%20Cleveland%2C%20OH%2044135!5e0!3m2!1sen!2sus!4v1637000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.8675764613187!2d-81.55443492346976!3d41.45903789460284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830fc4f0e5c8b67%3A0x7c1f8c768341e6d3!2s19100%20Nottingham%20Rd%2C%20Cleveland%2C%20OH%2044110!5e0!3m2!1sen!2sus!4v1710799144070!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -42,7 +42,7 @@ export default function Footer() {
             </h3>
             <p className="mb-2 flex items-center">
               <MapPin className="w-5 h-5 mr-2 text-orange-500" />
-              4364 W 130TH ST, CLEVELAND, OH 44135
+              19100 Nottingham Road Cleveland OH 44110
             </p>
           </motion.div>
 

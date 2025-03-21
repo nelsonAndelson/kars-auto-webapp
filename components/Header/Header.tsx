@@ -26,7 +26,7 @@ export default function Header() {
             </div>
             <div className="flex items-center">
               <MapPin className="mr-2 h-4 w-4 text-primary" />
-              <p>4364 W 130TH ST, CLEVELAND, OH 44135</p>
+              <p>19100 Nottingham Road Cleveland OH 44110</p>
             </div>
           </div>
           <div>
