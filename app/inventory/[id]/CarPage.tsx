@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import ImageGallery from "@/components/Inventory/ImageGallery";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Loading from "./loading";
@@ -13,6 +13,7 @@ import { urlFor } from "@/sanity/sanity.config";
 import { Gauge, Settings2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { trackViewContent } from "@/lib/meta-pixel";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -25,6 +26,18 @@ const staggerContainer = {
 };
 
 export default function CarPage({ car }: { car: CarType }) {
+  useEffect(() => {
+    // Track the vehicle detail page view
+    trackViewContent({
+      content_type: "vehicle",
+      content_name: `${car.year} ${car.make} ${car.model}`,
+      content_category: "Vehicle Details",
+      content_ids: [car._id],
+      value: car.price || 0,
+      currency: "USD"
+    });
+  }, [car]);
+
   return (
     <div className="min-h-screen bg-[#0F1117] text-white">
       <ErrorBoundary

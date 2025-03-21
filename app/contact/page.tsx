@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import { trackContact } from "@/lib/meta-pixel";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -28,6 +30,48 @@ const staggerContainer = {
 };
 
 export default function ContactUsPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Track the contact form submission
+      trackContact({
+        content_name: "Contact Form",
+        status: "submitted",
+        contact_type: "general"
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+
+      // Show success message (you can implement your own toast/alert)
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error sending message. Please try again.");
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
@@ -67,7 +111,7 @@ export default function ContactUsPage() {
               <Card className="bg-gray-800 border-gray-700">
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                       <label
                         htmlFor="name"
@@ -77,8 +121,11 @@ export default function ContactUsPage() {
                       </label>
                       <Input
                         id="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         placeholder="Your Name"
                         className="bg-gray-700 border-gray-600"
+                        required
                       />
                     </div>
                     <div>
@@ -91,8 +138,11 @@ export default function ContactUsPage() {
                       <Input
                         id="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="your@email.com"
                         className="bg-gray-700 border-gray-600"
+                        required
                       />
                     </div>
                     <div>
@@ -105,8 +155,11 @@ export default function ContactUsPage() {
                       <Input
                         id="phone"
                         type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                         placeholder="(123) 456-7890"
                         className="bg-gray-700 border-gray-600"
+                        required
                       />
                     </div>
                     <div>
@@ -118,9 +171,12 @@ export default function ContactUsPage() {
                       </label>
                       <Textarea
                         id="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         placeholder="How can we help you?"
                         className="bg-gray-700 border-gray-600"
                         rows={4}
+                        required
                       />
                     </div>
                     <Button
