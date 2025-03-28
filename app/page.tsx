@@ -3,13 +3,16 @@ import Hero from "@/components/Home/Hero/Hero";
 import HowItWorks from "@/components/Home/HowItWorks/HowItWorks";
 import AboutUsSection from "@/components/AboutUs/AboutUs";
 import FAQ from "@/components/Home/FAQ/FAQ";
+import dynamic from "next/dynamic";
 
-import React from "react";
+// Use dynamic import with SSR disabled for components using framer-motion
+const AutoRepair = dynamic(() => import("@/components/Home/AutoRepair/AutoRepair"), { ssr: false });
 
 const Home = async () => {
   return (
     <main className="w-full">
       <Hero />
+      <AutoRepair />
       <FeaturedInventory />
       <HowItWorks />
       <AboutUsSection />

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { trackCustomEvent } from "@/lib/meta-pixel";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 export default function BookingPage() {
   const [formData, setFormData] = useState({
@@ -12,12 +14,17 @@ export default function BookingPage() {
     date: "",
     notes: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Create toast if available, otherwise use alert
+  const toast = useToast ? useToast() : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      // Track the service booking
+      // Track the service booking with Meta Pixel
       trackCustomEvent("ServiceBooking", {
         content_name: "Service Appointment",
         status: "booked",
@@ -25,21 +32,74 @@ export default function BookingPage() {
         appointment_date: formData.date
       });
 
-      // Reset form
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "",
-        date: "",
-        notes: ""
-      });
+      // Build a comprehensive message that includes contact info
+      const detailedMessage = `
+Service booking request: ${formData.service} on ${formData.date}
+Contact: ${formData.email} | ${formData.phone}
+Notes: ${formData.notes || 'No additional notes'}
+      `.trim();
 
-      // Show success message (you can implement your own toast/alert)
-      alert("Appointment booked successfully!");
+      // Prepare EmailJS template parameters
+      // Using a structured approach with form_type to differentiate sources
+      const templateParams = {
+        form_type: "booking",
+        to_name: "Kars Auto Service Team", // Recipient name for booking form
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        // Add booking-specific parameters
+        booking_service: formData.service,
+        booking_date: formData.date,
+        booking_notes: formData.notes,
+        // Include contact info in the message for backward compatibility
+        message: detailedMessage,
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'service_v6268tk', // Your service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
+
+      if (response.status === 200) {
+        // Reset form
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "",
+          date: "",
+          notes: ""
+        });
+        
+        // Show success message
+        if (toast?.toast) {
+          toast.toast({
+            title: "Booking Successful!",
+            description: "We'll confirm your appointment soon.",
+            variant: "default",
+          });
+        } else {
+          alert("Appointment booked successfully!");
+        }
+      } else {
+        throw new Error("Failed to send booking request");
+      }
     } catch (error) {
       console.error("Error booking appointment:", error);
-      alert("Error booking appointment. Please try again.");
+      if (toast?.toast) {
+        toast.toast({
+          title: "Booking Failed",
+          description: "Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      } else {
+        alert("Error booking appointment. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -155,13 +215,14 @@ export default function BookingPage() {
           
           <button
             type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+            disabled={isSubmitting}
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:bg-orange-300"
           >
-            Book Appointment
+            {isSubmitting ? "Submitting..." : "Book Appointment"}
           </button>
           
           <p className="text-center text-sm text-gray-500 mt-4">
-            We'll confirm your appointment within 2 hours during business hours.
+            We'll confirm your appointment within 10 minutes during business hours.
           </p>
         </form>
       </div>

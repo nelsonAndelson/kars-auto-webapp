@@ -188,7 +188,7 @@ export default function AutoRepairPage() {
                   <p className="text-gray-600 mb-6 text-sm">
                     100% satisfaction guarantee: If we fix your car and the same problem returns within 30 days, we'll fix it for FREE—no questions asked.
                   </p>
-                  <Link href="/auto-repair/fixed-right-guarantee">
+                  <Link href="/auto-repair/booking">
                     <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all">
                       Book a Guaranteed Repair
                     </button>
@@ -221,7 +221,7 @@ export default function AutoRepairPage() {
                   <p className="text-gray-600 mb-6 text-sm">
                     Don't pay just to find out what's wrong—our 15-minute diagnostic is 100% free! Plus get $20 off your service.
                   </p>
-                  <Link href="/auto-repair/free-diagnostic">
+                  <Link href="/auto-repair/booking">
                     <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition-all">
                       Book Your Free Diagnostic
                     </button>
@@ -254,7 +254,7 @@ export default function AutoRepairPage() {
                   <p className="text-gray-600 mb-6 text-sm">
                     New to KARS Auto? Get $50 OFF your first repair over $200 + FREE tire pressure & fluid top-up.
                   </p>
-                  <Link href="/auto-repair/first-time-customer">
+                  <Link href="/auto-repair/booking">
                     <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition-all">
                       Claim Your $50 Off Now
                     </button>

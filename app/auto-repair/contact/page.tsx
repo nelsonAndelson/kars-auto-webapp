@@ -109,7 +109,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="font-medium text-gray-900">Address</h3>
-                <p className="text-gray-700">4364 W 130TH ST, CLEVELAND, OH 44135</p>
+                <p className="text-gray-700">19100 Nottigham Road, Cleveland OH 44110</p>
               </div>
               <div>
                 <h3 className="font-medium text-gray-900">Phone</h3>

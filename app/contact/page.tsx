@@ -9,6 +9,8 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { trackContact } from "@/lib/meta-pixel";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -36,31 +38,84 @@ export default function ContactUsPage() {
     phone: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const toast = useToast ? useToast() : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      // Track the contact form submission
+      // Track the contact form submission with Meta Pixel
       trackContact({
         content_name: "Contact Form",
         status: "submitted",
         contact_type: "general"
       });
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: ""
-      });
+      // Build a comprehensive message that includes contact info
+      const detailedMessage = `
+Contact message from: ${formData.name}
+Contact: ${formData.email} | ${formData.phone}
 
-      // Show success message (you can implement your own toast/alert)
-      alert("Message sent successfully!");
+Message:
+${formData.message}
+      `.trim();
+
+      // Prepare EmailJS template parameters
+      const templateParams = {
+        form_type: "contact",
+        to_name: "Kars Auto Team",
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        // Include formatted message with contact details
+        message: detailedMessage
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'service_v6268tk',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
+
+      if (response.status === 200) {
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+        
+        // Show success message
+        if (toast?.toast) {
+          toast.toast({
+            title: "Message Sent!",
+            description: "We'll get back to you as soon as possible.",
+            variant: "default",
+          });
+        } else {
+          alert("Message sent successfully!");
+        }
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Error sending message. Please try again.");
+      if (toast?.toast) {
+        toast.toast({
+          title: "Message Failed",
+          description: "Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      } else {
+        alert("Error sending message. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -181,9 +236,10 @@ export default function ContactUsPage() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-orange-500 hover:bg-orange-600"
+                      disabled={isSubmitting}
+                      className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300"
                     >
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>
@@ -227,7 +283,7 @@ export default function ContactUsPage() {
                   <Mail className="w-6 h-6 text-orange-500 mt-1" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-300">info@karsauto.com</p>
+                    <p className="text-gray-300">karsllcauto@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
