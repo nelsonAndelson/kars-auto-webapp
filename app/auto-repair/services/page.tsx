@@ -78,7 +78,7 @@ export default function ServicesPage() {
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold mb-4">Need a Custom Service?</h2>
         <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-          Don't see what you're looking for? Contact us for a custom quote on any auto repair service.
+          Don&apos;t see what you&apos;re looking for? Contact us for a custom quote on any auto repair service.
         </p>
         <Link href="/auto-repair/contact">
           <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-colors">

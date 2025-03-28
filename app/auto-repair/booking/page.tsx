@@ -16,8 +16,8 @@ export default function BookingPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Create toast if available, otherwise use alert
-  const toast = useToast ? useToast() : null;
+  // Call the hook unconditionally at the top level
+  const toast = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -222,7 +222,7 @@ Notes: ${formData.notes || 'No additional notes'}
           </button>
           
           <p className="text-center text-sm text-gray-500 mt-4">
-            We'll confirm your appointment within 10 minutes during business hours.
+            We&apos;ll confirm your appointment within 10 minutes during business hours.
           </p>
         </form>
       </div>

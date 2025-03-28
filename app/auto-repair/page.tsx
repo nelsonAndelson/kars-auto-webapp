@@ -2,11 +2,10 @@ import React from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaTools, FaCheck, FaTrophy, FaClock, FaShieldAlt, FaWrench, FaTag, FaMoneyBillWave, FaUserPlus, FaQuestionCircle } from 'react-icons/fa';
+import { FaTools, FaCheck, FaTrophy, FaClock, FaShieldAlt, FaTag,  FaUserPlus, FaQuestionCircle } from 'react-icons/fa';
 
 // Import images
 import diagnosticImage from '@/app/images/diagnostic.jpeg';
-import engineRepairImage from '@/app/images/engine-repair.jpg';
 import carSuspensionImage from '@/app/images/car-suspension.jpg';
 import reliableImage from '@/app/images/reliable.jpg';
 import serviceImage from '@/app/images/service.jpg';
@@ -54,7 +53,7 @@ export default function AutoRepairPage() {
             
             <h2 className="flex items-center justify-center gap-2 text-xl md:text-2xl text-yellow-300 mb-12">
               <FaTrophy className="text-yellow-300" /> 
-              Backed by a 30-Day Guarantee – Fixed Right or It's Free! 
+              Backed by a 30-Day Guarantee – Fixed Right or It&apos;s Free! 
               <FaTrophy className="text-yellow-300" />
             </h2>
             
@@ -118,7 +117,7 @@ export default function AutoRepairPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Guaranteed Work</h3>
-                    <p className="text-gray-700">30-Day Fix Guarantee – If it's not fixed right, we'll make it right at no cost to you.</p>
+                    <p className="text-gray-700">30-Day Fix Guarantee – If it&apos;s not fixed right, well make it right at no cost to you.</p>
                   </div>
                 </div>
               </div>
@@ -180,13 +179,13 @@ export default function AutoRepairPage() {
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <FaShieldAlt className="text-blue-600 text-xl" />
-                    <h3 className="text-xl font-bold text-gray-900">Fixed Right or It's Free</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Fixed Right or It&apos;s Free</h3>
                   </div>
                   <p className="text-gray-700 mb-3 font-medium">
-                    Never pay twice for the same repair – we fix it right or it's free!
+                    Never pay twice for the same repair – we fix it right or it&apos;s free!
                   </p>
                   <p className="text-gray-600 mb-6 text-sm">
-                    100% satisfaction guarantee: If we fix your car and the same problem returns within 30 days, we'll fix it for FREE—no questions asked.
+                    100% satisfaction guarantee: If we fix your car and the same problem returns within 30 days, we&apos;ll fix it for FREE—no questions asked.
                   </p>
                   <Link href="/auto-repair/booking">
                     <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all">
@@ -216,10 +215,10 @@ export default function AutoRepairPage() {
                     <h3 className="text-xl font-bold text-gray-900">Fast & Free Diagnostic</h3>
                   </div>
                   <p className="text-gray-700 mb-3 font-medium">
-                    We'll diagnose your car problem for FREE – no obligation!
+                    We&apos;ll diagnose your car problem for FREE – no obligation!
                   </p>
                   <p className="text-gray-600 mb-6 text-sm">
-                    Don't pay just to find out what's wrong—our 15-minute diagnostic is 100% free! Plus get $20 off your service.
+                    Don&apos;t pay just to find out what&apos;s wrong—our 15-minute diagnostic is 100% free! Plus get $20 off your service.
                   </p>
                   <Link href="/auto-repair/booking">
                     <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition-all">
@@ -466,13 +465,13 @@ export default function AutoRepairPage() {
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-6">
                   <p className="text-gray-700 italic mb-4">
                     "The team at KARS Auto fixed my car quickly and for a fair price. They explained everything they were doing and why. 
-                    I'll definitely be back for future repairs!"
+                    I&apos;ll definitely be back for future repairs!"
                   </p>
                   <p className="font-semibold text-gray-900">— Michael Johnson</p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
                   <p className="text-gray-700 italic mb-4">
-                    "My check engine light was on for weeks and another shop couldn't figure it out. KARS diagnosed the problem in 30 minutes 
+                    "My check engine light was on for weeks and another shop couldn&apos;t figure it out. KARS diagnosed the problem in 30 minutes 
                     and had it fixed the same day. Great service!"
                   </p>
                   <p className="font-semibold text-gray-900">— Sarah Williams</p>
@@ -507,7 +506,7 @@ export default function AutoRepairPage() {
               {/* Fixed Right or Free FAQs */}
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h3 className="text-xl font-bold text-blue-600 mb-4 flex items-center gap-2">
-                  <FaShieldAlt /> Fixed Right or It's Free Guarantee
+                  <FaShieldAlt /> Fixed Right or It&apos;s Free Guarantee
                 </h3>
                 <div className="space-y-4">
                   <div>
@@ -520,10 +519,10 @@ export default function AutoRepairPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                      <FaQuestionCircle className="text-blue-500" /> What if it's a different issue?
+                      <FaQuestionCircle className="text-blue-500" /> What if it&apos;s a different issue?
                     </h4>
                     <p className="text-gray-700 mt-1 pl-6">
-                      If it's a new problem, we'll diagnose it for free.
+                      If it&apos;s a new problem, we&apos;ll diagnose it for free.
                     </p>
                   </div>
                   <div>
@@ -531,7 +530,7 @@ export default function AutoRepairPage() {
                       <FaQuestionCircle className="text-blue-500" /> How do I claim my free re-repair?
                     </h4>
                     <p className="text-gray-700 mt-1 pl-6">
-                      Just call us, and we'll get you scheduled ASAP—no hassle, no paperwork.
+                      Just call us, and we&apos;ll get you scheduled ASAP—no hassle, no paperwork.
                     </p>
                   </div>
                 </div>
@@ -556,7 +555,7 @@ export default function AutoRepairPage() {
                       <FaQuestionCircle className="text-green-500" /> Do I have to book a repair after the diagnostic?
                     </h4>
                     <p className="text-gray-700 mt-1 pl-6">
-                      Nope! We'll give you our honest recommendation, and you decide.
+                      Nope! We&apos;ll give you our honest recommendation, and you decide.
                     </p>
                   </div>
                   <div>
@@ -597,7 +596,7 @@ export default function AutoRepairPage() {
                       <FaQuestionCircle className="text-purple-500" /> Can I combine this with other offers?
                     </h4>
                     <p className="text-gray-700 mt-1 pl-6">
-                      This deal can't be stacked with other promos, but we'll always give you the best price!
+                      This deal can&apos;t be stacked with other promos, but we&apos;ll always give you the best price!
                     </p>
                   </div>
                 </div>

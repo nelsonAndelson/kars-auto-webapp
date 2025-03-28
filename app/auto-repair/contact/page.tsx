@@ -14,7 +14,7 @@ export default function ContactPage() {
         Contact Our Auto Repair Team
       </h1>
       <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-        Need a quote or have questions about our services? Fill out the form below and we'll get back to you within 2 hours during business hours.
+        Need a quote or have questions about our services? Fill out the form below and we&apos;ll get back to you within 2 hours during business hours.
       </p>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

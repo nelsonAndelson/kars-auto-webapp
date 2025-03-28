@@ -64,7 +64,7 @@ const AutoRepair = () => {
               <div className="space-y-1">
                 <div className="flex items-center">
                   <Shield className="w-5 h-5 text-blue-400 mr-2" />
-                  <h4 className="text-lg font-semibold text-blue-400">Fixed Right or It's Free</h4>
+                  <h4 className="text-lg font-semibold text-blue-400">Fixed Right or It&apos;s Free</h4>
                   <span className="ml-auto text-sm font-bold bg-orange-500 text-white rounded-full px-3 py-0.5">GUARANTEE</span>
                 </div>
                 <p className="text-gray-300">Never pay twice for the same repair – 100% satisfaction guarantee for 30 days.</p>

@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { 
-  FaTools, FaCheck, FaTrophy, FaClock, FaShieldAlt, FaWrench, 
-  FaTruck, FaCar, FaIndustry, FaChartLine, FaHeadset, FaClipboardCheck,
-  FaMoneyBillWave, FaUserClock, FaFileAlt, FaArrowRight, FaTimes,
+   FaCheck, 
+  FaTruck, FaCar, FaHeadset,
+  FaMoneyBillWave, FaUserClock, FaFileAlt, FaTimes,
   FaSpinner
 } from 'react-icons/fa';
 import { trackCustomEvent } from "@/lib/meta-pixel";
@@ -20,9 +22,6 @@ import fleetServiceBg from '@/app/images/Fleet-Service-bg.jpg';
 import fleetVanLift from '@/app/images/fleet-van-on-lift.png';
 import fleetVanRepair from '@/app/images/fleet-van-on-repair.jpg';
 import fleetVanRepair2 from '@/app/images/fleet-van-on-repair2.jpg';
-import reliableImage from '@/app/images/reliable.jpg';
-import serviceImage from '@/app/images/service.jpg';
-import diagnosticImage from '@/app/images/diagnostic.jpeg';
 import fleetVanOnRepair from '@/app/images/fleet-van-on-repair.jpg';
 import uberFleetImage from '@/app/images/intro-1683051283.jpg';
 import lyftImage from '@/app/images/lyft-image.jpg';
@@ -122,7 +121,7 @@ export default function FleetMaintenancePage() {
                     </div>
                     <div>
                       <p className="text-red-900 font-medium">Unreliable Mechanics</p>
-                      <p className="text-red-700">Shops that don't prioritize fleet vehicles</p>
+                      <p className="text-red-700">Shops that don&apos;t prioritize fleet vehicles</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -473,7 +472,7 @@ export default function FleetMaintenancePage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">For Contractors & Service Vans</h3>
-                      <p className="text-gray-600">Your business depends on your vehicle—let's keep it running</p>
+                      <p className="text-gray-600">Your business depends on your vehicle—let&apos;s keep it running</p>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -606,7 +605,7 @@ export default function FleetMaintenancePage() {
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-white mb-4">Get Your Free Fleet Assessment</h2>
                 <p className="text-blue-100">
-                  Whether you have service vans or rideshare vehicles, we'll create a custom maintenance plan that keeps your fleet running at peak efficiency.
+                  Whether you have service vans or rideshare vehicles, we&apos;ll create a custom maintenance plan that keeps your fleet running at peak efficiency.
                 </p>
               </div>
 
@@ -614,7 +613,7 @@ export default function FleetMaintenancePage() {
                 <div className="text-center p-8 bg-green-100 rounded-lg">
                   <FaCheck className="text-green-500 text-4xl mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-green-800 mb-2">Thank You!</h3>
-                  <p className="text-green-700">We've received your request and will contact you shortly.</p>
+                  <p className="text-green-700">We&apos;ve received your request and will contact you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -774,7 +773,7 @@ export default function FleetMaintenancePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Transform Your Fleet Maintenance?</h2>
             <p className="text-xl text-gray-700 mb-8">
-              Join successful fleet owners who trust us with their vehicles. Whether you run service vans or rideshare vehicles, we'll keep your fleet running smoothly.
+                Join successful fleet owners who trust us with their vehicles. Whether you run service vans or rideshare vehicles, we&apos;ll keep your fleet running smoothly.
             </p>
             <div className="space-y-4">
             <button 

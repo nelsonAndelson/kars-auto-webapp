@@ -58,7 +58,7 @@ export default function ReviewsPage() {
         Customer Reviews
       </h1>
       <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-        Don't just take our word for it. See what our customers have to say about our auto repair services.
+        Don&apos;t just take our word for it. See what our customers have to say about our auto repair services.
       </p>
       
       {/* Reviews List */}
@@ -87,7 +87,7 @@ export default function ReviewsPage() {
       <div className="bg-orange-50 p-8 rounded-xl border border-orange-100 text-center">
         <h2 className="text-2xl font-bold mb-4">Had a Great Experience?</h2>
         <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-          We appreciate your feedback! If you've had a positive experience with our auto repair services, please consider leaving a review.
+          We appreciate your feedback! If you&apos;ve had a positive experience with our auto repair services, please consider leaving a review.
         </p>
         <a 
           href="https://g.page/r/kars-auto-repair/review" 
