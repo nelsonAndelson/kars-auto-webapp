@@ -464,15 +464,15 @@ export default function AutoRepairPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-6">
                   <p className="text-gray-700 italic mb-4">
-                    "The team at KARS Auto fixed my car quickly and for a fair price. They explained everything they were doing and why. 
-                    I&apos;ll definitely be back for future repairs!"
+                    &quot;The team at KARS Auto fixed my car quickly and for a fair price. They explained everything they were doing and why. 
+                    I&apos;ll definitely be back for future repairs!&quot;
                   </p>
                   <p className="font-semibold text-gray-900">— Michael Johnson</p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
                   <p className="text-gray-700 italic mb-4">
-                    "My check engine light was on for weeks and another shop couldn&apos;t figure it out. KARS diagnosed the problem in 30 minutes 
-                    and had it fixed the same day. Great service!"
+                    &quot;My check engine light was on for weeks and another shop couldn&apos;t figure it out. KARS diagnosed the problem in 30 minutes 
+                    and had it fixed the same day. Great service!&quot;
                   </p>
                   <p className="font-semibold text-gray-900">— Sarah Williams</p>
                 </div>

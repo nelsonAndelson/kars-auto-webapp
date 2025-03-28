@@ -39,7 +39,7 @@ export default function ContactUsPage() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const toast = useToast ? useToast() : null;
+  const toast = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

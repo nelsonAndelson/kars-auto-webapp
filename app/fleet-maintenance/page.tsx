@@ -574,7 +574,7 @@ export default function FleetMaintenancePage() {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  "I used to lose money every time my work vans broke down. Now with their fleet plan, I have predictable maintenance costs and priority service. My vans stay on the road, which means more jobs completed!"
+                  &quot;I used to lose money every time my work vans broke down. Now with their fleet plan, I have predictable maintenance costs and priority service. My vans stay on the road, which means more jobs completed!&quot;
                 </p>
               </div>
 
@@ -589,7 +589,7 @@ export default function FleetMaintenancePage() {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  "Managing a rideshare fleet is challenging, but their maintenance plan makes it easier. Express service means my drivers are back on the road quickly, and the fleet pricing saves us thousands each month!"
+                  &quot;Managing a rideshare fleet is challenging, but their maintenance plan makes it easier. Express service means my drivers are back on the road quickly, and the fleet pricing saves us thousands each month!&quot;
                 </p>
               </div>
             </div>
@@ -734,7 +734,7 @@ export default function FleetMaintenancePage() {
                       className="w-4 h-4 rounded border-blue-400"
                     />
                     <label htmlFor="mobileService">
-                      I'm interested in mobile service options
+                      I&apos;m interested in mobile service options
                     </label>
                 </div>
 
