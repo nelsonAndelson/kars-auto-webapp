@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import PromoBanner from "@/components/PromoBanner";
 import { Toaster } from "@/components/ui/toaster";
 import MetaPixel from "@/components/MetaPixel";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
