@@ -9,6 +9,7 @@ import Image from "next/image";
 import { staggerContainer, fadeIn } from "@/lib/framer/animations";
 import autoRepairImage from "@/app/images/auto-repair.jpg";
 import logo from "@/app/images/logo.png";
+import { FaWrench } from "react-icons/fa";
 
 export default function AboutPage() {
   return (
@@ -180,12 +181,20 @@ export default function AboutPage() {
               automotive needs. Contact us today to schedule your service or
               discuss your vehicle requirements.
             </motion.p>
-            <motion.div variants={fadeIn}>
+            <motion.div variants={fadeIn} className="flex flex-col gap-5 sm:flex-row justify-center">
               <Link href="/contact">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg w-full">
                   <Phone className="w-4 h-4 mr-2" />
-                  Contact Us Today
+                  Call/Text Us Today
                 </Button>
+              </Link>
+
+              <Link href="/auto-repair/booking">
+                <Button className="bg-transparent border border-orange-500 text-orange-500 hover:text-white px-8 py-6 text-lg w-full">
+                  <FaWrench className="w-4 h-4 mr-2" />
+                  Schedule Auto Repair
+                </Button>
+              
               </Link>
             </motion.div>
           </motion.div>

@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { fadeIn } from "@/lib/framer/animations";
+import { FaDollarSign } from "react-icons/fa";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -52,7 +54,7 @@ export default function Footer() {
             </h4>
             <p className="mb-2 flex items-center">
               <Clock className="w-5 h-5 mr-2 text-orange-500" />
-              EVERYDAY 9:00A - 5:00P
+              EVERYDAY 9:00 AM - 5:00 PM
             </p>
           </motion.div>
 
@@ -60,14 +62,15 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-orange-500">
               Contact Us
             </h4>
-            <p className="mb-2 flex items-center">
+            <Link href="tel:216-304-1233" className="mb-2 flex items-center hover:text-orange-500">
               <Phone className="w-5 h-5 mr-2 text-orange-500" />
               Sales: (216) 304-1233
-            </p>
-            <p className="mb-2 flex items-center">
+            </Link>
+
+            <Link href="tel:2163720661"className="mb-2 flex items-center hover:text-orange-500">
               <Phone className="w-5 h-5 mr-2 text-orange-500" />
-              Service: (216) 372-0661
-            </p>
+              Auto Repair: (216) 372-0661
+            </Link>
           </motion.div>
 
           <motion.div
@@ -85,27 +88,29 @@ export default function Footer() {
                 View Inventory
               </Link>
               <Link
-                href="/services"
+                href="/auto-repair/booking"
                 className="block hover:text-orange-500 transition-colors"
               >
-                Our Services
+                Schedule Auto Repair Service
               </Link>
               <Link
-                href="/financing"
+                href="/fleet-maintanance"
                 className="block hover:text-orange-500 transition-colors"
               >
-                Financing Options
+                Fleet Maintanance
               </Link>
             </nav>
-            <motion.div
-              className="mt-4"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.div variants={fadeIn} className="mt-2 ">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold xl:text-lg"
             >
-              <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
-                Schedule Service
-              </Button>
-            </motion.div>
+              <Link href="/pre-approval" className="flex items-center gap-2">
+                <FaDollarSign className="w-4 h-4" />
+                Get Pre-Approved Now
+              </Link>
+            </Button>
+          </motion.div>
           </motion.div>
         </motion.div>
 

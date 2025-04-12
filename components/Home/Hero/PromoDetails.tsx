@@ -50,7 +50,7 @@ export default function PromoDetails() {
         </div>
         <div className="flex justify-center mt-8 gap-4">
           <Link href="/pre-approval">
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-lg">Get Started</button>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-lg">Get Pre-Approved</button>
           </Link>
           <Link href="/#faqs">
             <button className="bg-transparent border border-orange-500 text-orange-500 px-6 py-3 rounded-lg hover:bg-orange-500 hover:text-white">See FAQs</button>

@@ -696,7 +696,7 @@ export function PreApprovalForm() {
               </div>
               <p className="text-sm text-gray-500 mt-4 text-center">
                 By continuing, I agree to receive messages and updates from
-                RightWay. Message & data rates may apply.
+                KARS Auto Sales and Repair. Message & data rates may apply.
               </p>
               <NavigationControls onNext={() => handleSubmit()} />
             </div>

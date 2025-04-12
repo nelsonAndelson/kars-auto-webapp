@@ -33,7 +33,9 @@ export default function Header() {
           </div>
           <div>
             <Link className="text-primary font-bold" href="tel:+12163041233">
-              +1 (216) 304 1233
+              <Button className="w-full px-4 py-4 text-white">
+                  Call/Text 216-304-1233
+              </Button>
             </Link>
           </div>
         </div>
@@ -80,9 +82,9 @@ export default function Header() {
             <Link href="/about" className={navLinkStyles("/about")}>
               About
             </Link>
-            <Link href="/services" className={navLinkStyles("/services")}>
+            {/* <Link href="/services" className={navLinkStyles("/services")}>
               Services
-            </Link>
+            </Link> */}
             <Link href="/contact" className={navLinkStyles("/contact")}>
               Contact
             </Link>

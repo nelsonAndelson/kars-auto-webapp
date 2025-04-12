@@ -63,7 +63,7 @@ export default function Hero() {
           <div className="flex gap-4 mt-8">
             <Link href="/pre-approval">
               <Button className="bg-orange-500 text-white px-6 py-3 rounded-lg">
-                Get Started
+                Get Pre-Approved
               </Button>
             </Link>
             <Link href="/inventory">

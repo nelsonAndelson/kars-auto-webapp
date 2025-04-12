@@ -90,7 +90,7 @@ export default function AboutUsSection() {
                 className="border-orange-500 text-orange-500 hover:bg-orange-500/10"
               >
                 <Link
-                  href="https://maps.google.com/?q=4364+W+130TH+ST,+CLEVELAND,+OH+44135"
+                  href="https://maps.google.com/?q=19100+NOTTINGHAM+ROAD,+CLEVELAND,+OH+44110"
                   target="_blank"
                   className="flex items-center gap-2"
                 >

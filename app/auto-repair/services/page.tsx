@@ -52,7 +52,7 @@ export default function ServicesPage() {
       <h1 className="text-3xl lg:text-4xl font-bold text-center mb-4">
         Our Auto Repair Services
       </h1>
-      <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+      <p className="text-lg text-gray-100 text-gray-700 text-center mb-12 max-w-3xl mx-auto">
         From routine maintenance to major repairs, our certified mechanics provide quality service with a 30-day guarantee.
       </p>
       
@@ -77,10 +77,10 @@ export default function ServicesPage() {
       
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold mb-4">Need a Custom Service?</h2>
-        <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+        <p className="text-gray-700 mb-6 max-w-2xl mx-auto text-gray-100">
           Don&apos;t see what you&apos;re looking for? Contact us for a custom quote on any auto repair service.
         </p>
-        <Link href="/auto-repair/contact">
+        <Link href="/auto-repair/booking">
           <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-colors">
             Request a Custom Quote
           </button>
